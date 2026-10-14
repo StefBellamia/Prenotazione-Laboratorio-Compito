@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prenotazione laboratorio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu-bar {
+            background-color: #eee;
+            padding: 5px;
+            display: flex;
+        }
+
+        .menu {
+            position: relative;
+            margin-right: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .menu:hover {
+            background-color: #ddd;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            min-width: 150px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .submenu div {
+            padding: 8px;
+        }
+
+        .submenu div:hover {
+            background-color: #f0f0f0;
+        }
+
+        .menu:hover .submenu {
+            display: block;
+        }
+
+        fieldset {
+            margin-left:auto;
+            margin-right: auto;
+            width: 800px;
+            border-radius: 20px;
+            border-color: black;
+            background-color: #f0f0f0;
+        }
+
+        legend{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- BARRA DEL MENU -->
+<div class="menu-bar">
+    <div class="menu">File
+        <div class="submenu">
+            <div onclick="location.href='index.html'">Esci</div>
+        </div>
+    </div>
+    <div class="menu">Prenotazione
+        <div class="submenu">
+            <div onclick="location.href='LeggiPrenotazioniServlet'">Leggi Prenotazioni</div>
+            <div onclick="location.href='ricercaPrenotazione.html'">Ricerca Prenotazioni</div>
+            <div onclick="location.href='ricercaPerMese.html'">Ricerca Per Mese</div>
+        </div>
+    </div>
+
+    <div class="menu">Aiuto
+        <div class="submenu">
+            <div>Info</div>
+        </div>
+    </div>
+
+</div>
+
+<fieldset>
+    <legend>
+        <h1>Prenotazione laboratorio informatico</h1>
+    </legend>
+    <form action="PrenotazioneServlet" method="post">
+        <p>
+            <label for="nome">Nome e cognome:</label>
+            <input type="text" id="nome" name="nome" required>
+        </p>
+
+        <p>
+            <label for="ore">Numero di ore:</label>
+            <input type="number" id="ore" name="ore" required>
+        </p>
+
+        <p>
+            <label for="giorno">Inserisci la data della prenotazione:</label>
+
+            <select id="giorno" name="giorno" required>
+                <option value="" disabled selected>DD</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+
+            <select id="mese" name="mese" required>
+                <option value="" disabled selected>MM</option>
+                <option value="09">Settembre</option>
+                <option value="10">Ottobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Dicembre</option>
+                <option value="01">Gennaio</option>
+                <option value="02">Febbraio</option>
+                <option value="03">Marzo</option>
+                <option value="04">Aprile</option>
+                <option value="05">Maggio</option>
+                <option value="06">Giugno</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="postazione">Tipo di postazione:</label>
+
+            <select id="postazione" name="postazione" required>
+                <option value="standard">Standard - 5 €/ora</option>
+                <option value="grafica">Grafica - 8 €/ora</option>
+                <option value="sviluppo">Sviluppo - 10 €/ora</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="checkbox" id="assistenza" name="assistenza" value="si">
+
+            <label for="assistenza"> Assistenza tecnica (+15 €)</label>
+        </p>
+
+        <p>
+            <input type="submit" value="Prenota">
+            <input type="reset" value="Cancella">
+        </p>
+
+    </form>
+</fieldset>
+
+
+
+
+</body>
+</html>

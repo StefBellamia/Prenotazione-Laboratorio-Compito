@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prenotazione laboratorio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu-bar {
+            background-color: #eee;
+            padding: 5px;
+            display: flex;
+        }
+
+        .menu {
+            position: relative;
+            margin-right: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .menu:hover {
+            background-color: #ddd;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            min-width: 150px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .submenu div {
+            padding: 8px;
+        }
+
+        .submenu div:hover {
+            background-color: #f0f0f0;
+        }
+
+        .menu:hover .submenu {
+            display: block;
+        }
+
+        fieldset {
+            margin-left:auto;
+            margin-right: auto;
+            width: 800px;
+            border-radius: 20px;
+            border-color: black;
+            background-color: #f0f0f0;
+        }
+
+        legend{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- BARRA DEL MENU -->
+<div class="menu-bar">
+    <div class="menu">File
+        <div class="submenu">
+            <div onclick="location.href='index.html'">Esci</div>
+        </div>
+    </div>
+    <div class="menu">Prenotazione
+        <div class="submenu">
+            <div onclick="location.href='prenotazione.html'">   Nuova Prenotazione </div>
+            <div onclick="location.href='LeggiPrenotazioniServlet'">Leggi Prenotazioni</div>
+            <div onclick="location.href='ricercaPerMese.html'">Ricerca Per Mese</div>
+        </div>
+    </div>
+
+    <div class="menu">Aiuto
+        <div class="submenu">
+            <div>Info</div>
+        </div>
+    </div>
+
+</div>
+
+<fieldset>
+    <legend>
+        <h1>Ricerca prenotazioni laboratorio informatico</h1>
+    </legend>
+    <form action="RicercaPrenotazioniServlet" method="post">
+        <p>
+            <label for="nome">Nome e cognome:</label>
+            <input type="text" id="nome" name="nome">
+        </p>
+
+        <p>
+            <input type="submit" value="Ricerca">
+            <input type="reset" value="Cancella">
+        </p>
+
+    </form>
+</fieldset>
+
+</body>
+</html>
